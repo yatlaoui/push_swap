@@ -6,11 +6,34 @@
 /*   By: yasmine <yasmine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 16:43:33 by yaatlaou          #+#    #+#             */
-/*   Updated: 2024/11/01 12:38:24 by yasmine          ###   ########.fr       */
+/*   Updated: 2024/11/01 13:35:06 by yasmine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+static int	is_sign(char c)
+{
+    return (c == '-' || c == '+');
+}
+
+static int	is_number(char *str)
+{
+    int i;
+
+    i = 0;
+    if (is_sign(str[i]))
+        i++;
+    if (str[i] == '\0')
+        return (0);
+    while (str[i])
+    {
+        if (!ft_isdigit(str[i]))
+            return (0);
+        i++;
+    }
+    return (1);
+}
 
 static long ft_atoi_long(const char *str)
 {
@@ -37,30 +60,7 @@ static long ft_atoi_long(const char *str)
     return (nb * signe);
 }
 
-static int	is_sign(char c)
-{
-    return (c == '-' || c == '+');
-}
-
-static int	is_number(char *str)
-{
-    int i;
-
-    i = 0;
-    if (is_sign(str[i]))
-        i++;
-    if (str[i] == '\0')
-        return (0);
-    while (str[i])
-    {
-        if (!ft_isdigit(str[i]))
-            return (0);
-        i++;
-    }
-    return (1);
-}
-
-int	is_double(t_stack *stack, int nbr)
+static int	is_double(t_stack *stack, int nbr)
 {
 	t_node	*current;
 
@@ -96,7 +96,7 @@ void    fill_stack(t_stack *stack, char *argv)
         nbr = ft_atoi_long(char_nbr[i]);
         if (nbr < INT_MIN || nbr > INT_MAX)
         {
-            printf("Error\n");
+            ft_putstr_fd("Error\n", 2);
             exit(EXIT_FAILURE);
         }
         if (is_double(stack, nbr) == 0)
@@ -104,7 +104,7 @@ void    fill_stack(t_stack *stack, char *argv)
         else
         {
             // attention - free ta stack
-            printf("Error\n");
+            ft_putstr_fd("Error\n", 2);
             exit(EXIT_FAILURE);
         }
         i++;

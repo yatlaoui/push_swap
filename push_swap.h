@@ -6,7 +6,7 @@
 /*   By: yasmine <yasmine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 16:43:26 by yaatlaou          #+#    #+#             */
-/*   Updated: 2024/11/01 12:54:55 by yasmine          ###   ########.fr       */
+/*   Updated: 2024/11/01 13:41:58 by yasmine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ typedef struct s_stack
 
 /* Parsing */
 
-int					is_double(t_stack *stack, int nbr);
 void				fill_stack(t_stack *stack, char *argv);
 
 /* Initialization */
@@ -64,7 +63,11 @@ void				op_pb(t_stack *stack_a, t_stack *stack_b);
 
 /* Sorting Algorithms */
 
+t_node				*find_min(t_stack *stack);
+int					is_sorted(t_stack *stack);
+int					get_position(t_stack *stack, int index);
+
 void				mini_sort(t_stack *stack_a, t_stack *stack_b);
-void				push_swap(t_stack *stack_a, t_stack *stack_b);
+void				big_sort(t_stack *stack_a, t_stack *stack_b);
 
 #endif

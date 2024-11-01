@@ -6,7 +6,7 @@
 #    By: yasmine <yasmine@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/19 16:11:48 by yaatlaou          #+#    #+#              #
-#    Updated: 2024/11/01 11:57:53 by yasmine          ###   ########.fr        #
+#    Updated: 2024/11/01 13:01:09 by yasmine          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,9 +18,9 @@ CFLAGS = -Wall -Werror -Wextra
 LIBFT_DIR = libft
 LIBFT = $(LIBFT_DIR)/libft.a
 
-SRC = push_swap.c index.c main.c init_struct.c mini_algo.c \
-      op_push.c op_r_rotate.c op_rotate.c op_swap.c parsing.c \
-	  utils.c
+SRC = push_swap.c main.c init_struct.c mini_algo.c \
+      op_push.c op_r_rotate.c op_rotate.c op_swap.c \
+	  parsing.c op_utils.c mini_algo_utils.c
 OBJ = $(SRC:%.c=obj/%.o)
 
 all: $(LIBFT) $(NAME)
