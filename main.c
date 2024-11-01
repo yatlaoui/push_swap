@@ -6,11 +6,12 @@
 /*   By: yasmine <yasmine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 14:46:39 by yaatlaou          #+#    #+#             */
-/*   Updated: 2024/10/31 22:11:51 by yasmine          ###   ########.fr       */
+/*   Updated: 2024/11/01 12:42:47 by yasmine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include <stdio.h>
 
 void	print_stack(t_stack *stack)
 {
@@ -48,7 +49,23 @@ int	main(int argc, char **argv)
 
 	free_stack(stack_a);
 	free_stack(stack_b);
-
 	return (0);
 }
 
+// static t_node *find_max(t_stack *stack)
+// {
+//     t_node *max;
+//     t_node *current;
+
+//     if (stack == NULL || stack->first == NULL)
+//         return (NULL);
+//     max = stack->first;
+//     current = stack->first;
+//     while (current != NULL)
+//     {
+//         if (current->data > max->data)
+//             max = current;
+//         current = current->next;
+//     }
+//     return (max);
+// }

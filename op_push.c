@@ -6,7 +6,7 @@
 /*   By: yasmine <yasmine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/30 14:56:28 by yaatlaou          #+#    #+#             */
-/*   Updated: 2024/10/16 13:27:33 by yasmine          ###   ########.fr       */
+/*   Updated: 2024/11/01 12:34:45 by yasmine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,11 @@ static void	push(t_stack *src, t_stack *dest)
 void	op_pa(t_stack *stack_a, t_stack *stack_b)
 {
 	push(stack_b, stack_a);
-	printf("pa\n");
+	ft_putstr("pa\n");
 }
 
 void	op_pb(t_stack *stack_a, t_stack *stack_b)
 {
 	push(stack_a, stack_b);
-	printf("pb\n");
+	ft_putstr("pb\n");
 }

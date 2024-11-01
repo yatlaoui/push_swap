@@ -6,13 +6,13 @@
 /*   By: yasmine <yasmine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 16:43:33 by yaatlaou          #+#    #+#             */
-/*   Updated: 2024/10/31 22:04:53 by yasmine          ###   ########.fr       */
+/*   Updated: 2024/11/01 12:38:24 by yasmine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-long ft_atoi_long(const char *str)
+static long ft_atoi_long(const char *str)
 {
     int i;
     long nb;
@@ -37,11 +37,6 @@ long ft_atoi_long(const char *str)
     return (nb * signe);
 }
 
-static int	is_digit(char c)
-{
-    return (c >= '0' && c <= '9');
-}
-
 static int	is_sign(char c)
 {
     return (c == '-' || c == '+');
@@ -58,7 +53,7 @@ static int	is_number(char *str)
         return (0);
     while (str[i])
     {
-        if (!is_digit(str[i]))
+        if (!ft_isdigit(str[i]))
             return (0);
         i++;
     }
@@ -80,8 +75,6 @@ int	is_double(t_stack *stack, int nbr)
 	}
 	return (0);
 }
-
-
 
 void    fill_stack(t_stack *stack, char *argv)
 {

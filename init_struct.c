@@ -6,7 +6,7 @@
 /*   By: yasmine <yasmine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/28 22:37:50 by yasmine           #+#    #+#             */
-/*   Updated: 2024/10/18 15:05:57 by yasmine          ###   ########.fr       */
+/*   Updated: 2024/11/01 12:50:24 by yasmine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,30 @@ t_stack	*init_stack(t_node *n)
 	return (stack);
 }
 
+void	get_index(t_stack *stack)
+{
+	int		index;
+	t_node	*i;
+	t_node	*j;
+
+	if (stack == NULL || stack->first == NULL)
+		return ;
+	i = stack->first;
+	while (i != NULL)
+	{
+		index = 0;
+		j = stack->first;
+		while (j != NULL)
+		{
+			if (i->data > j->data)
+				index = index + 1;
+			j = j->next;
+		}
+		i->index = index;
+		i = i->next;
+	}
+}
+
 void	free_stack(t_stack *stack)
 {
 	t_node	*next;
@@ -49,63 +73,4 @@ void	free_stack(t_stack *stack)
 		stack->first = next;
 	}
 	free(stack);
-}
-
-void	push_node(t_stack *stack, t_node *noeud)
-{
-	if (stack == NULL || noeud == NULL)
-		return ;
-	noeud->next = stack->first;
-	stack->first = noeud;
-	stack->size = stack->size + 1;
-}
-
-void	add_node(t_stack *stack, t_node *noeud)
-{
-    t_node *current;
-
-	if (stack == NULL || noeud == NULL)
-		return ;
-    if (stack->first == NULL)
-        stack->first = noeud;
-    else
-    {
-        current = stack->first;
-        while (current->next != NULL)
-            current = current->next;
-        current->next = noeud;
-    }
-	stack->size = stack->size + 1;
-}
-
-t_node	*pop_first(t_stack *stack)
-{
-	t_node	*first_elem;
-
-	if (stack == NULL || stack->first == NULL)
-		return (NULL);
-	first_elem = stack->first;
-	stack->first = stack->first->next;
-	return(first_elem);
-}
-
-t_node	*pop_last(t_stack *stack)
-{
-	t_node	*last_elem;
-	t_node    *current;
-
-	if (stack == NULL || stack->first == NULL)
-		return (NULL);
-	if (stack->first->next == NULL)
-	{
-		last_elem = stack->first;
-		stack->first = NULL;
-		return last_elem;
-	}	
-	current = stack->first;
-	while (current->next->next != NULL)
-		current = current->next;
-	last_elem = current->next;
-	current->next = NULL;
-	return (last_elem);
 }

@@ -6,7 +6,7 @@
 /*   By: yasmine <yasmine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/30 14:56:42 by yaatlaou          #+#    #+#             */
-/*   Updated: 2024/10/04 11:06:49 by yasmine          ###   ########.fr       */
+/*   Updated: 2024/11/01 12:35:34 by yasmine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,18 +26,18 @@ static void	swap(t_stack *stack)
 void	op_sa(t_stack *stack_a)
 {
 	swap(stack_a);
-	printf("sa\n");
+	ft_putstr("sa\n");
 }
 
 void	op_sb(t_stack *stack_b)
 {
 	swap(stack_b);
-	printf("sb\n");
+	ft_putstr("sb\n");
 }
 
 void	op_ss(t_stack *stack_a, t_stack *stack_b)
 {
 	op_sa(stack_a);
 	op_sb(stack_b);
-	printf("ss\n");
+	ft_putstr("ss\n");
 }
