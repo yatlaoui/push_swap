@@ -6,7 +6,7 @@
 /*   By: yasmine <yasmine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 16:43:26 by yaatlaou          #+#    #+#             */
-/*   Updated: 2024/11/01 22:17:27 by yasmine          ###   ########.fr       */
+/*   Updated: 2024/11/01 22:46:59 by yasmine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,7 @@ typedef struct s_stack
 
 /* Parsing */
 
-void    fill_stack(t_stack *stack, char *argv);
-// void				input_check(int argc, char **argv);
+void				parse_and_fill(t_stack *stack, char *argv);
 
 /* Initialization */
 
