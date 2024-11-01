@@ -6,33 +6,28 @@
 /*   By: yasmine <yasmine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 16:43:33 by yaatlaou          #+#    #+#             */
-/*   Updated: 2024/11/01 13:35:06 by yasmine          ###   ########.fr       */
+/*   Updated: 2024/11/01 22:26:24 by yasmine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-static int	is_sign(char c)
-{
-    return (c == '-' || c == '+');
-}
 
 static int	is_number(char *str)
 {
     int i;
 
     i = 0;
-    if (is_sign(str[i]))
+    if (str[i] == '-' || str[i] == '+')
         i++;
     if (str[i] == '\0')
         return (0);
     while (str[i])
     {
         if (!ft_isdigit(str[i]))
-            return (0);
+            return (1); // pas un nombre
         i++;
     }
-    return (1);
+    return (0); // un nombre
 }
 
 static long ft_atoi_long(const char *str)
@@ -60,7 +55,7 @@ static long ft_atoi_long(const char *str)
     return (nb * signe);
 }
 
-static int	is_double(t_stack *stack, int nbr)
+int	is_double(t_stack *stack, int nbr)
 {
 	t_node	*current;
 
@@ -88,7 +83,7 @@ void    fill_stack(t_stack *stack, char *argv)
     char_nbr = ft_split(argv, ' ');
     while (char_nbr[i] != 0)
     {
-        if (is_number(char_nbr[i]) == 0)
+        if (is_number(char_nbr[i]) == 1)
         {
             ft_putstr_fd("Error\n", 2);
             exit(EXIT_FAILURE);
@@ -103,7 +98,6 @@ void    fill_stack(t_stack *stack, char *argv)
             add_node(stack, init_node(nbr));
         else
         {
-            // attention - free ta stack
             ft_putstr_fd("Error\n", 2);
             exit(EXIT_FAILURE);
         }
