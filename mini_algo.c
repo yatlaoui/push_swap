@@ -6,7 +6,7 @@
 /*   By: yasmine <yasmine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/02 21:46:32 by yasmine           #+#    #+#             */
-/*   Updated: 2024/11/01 13:17:37 by yasmine          ###   ########.fr       */
+/*   Updated: 2024/11/01 13:44:43 by yasmine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,6 @@ static void	sort_three(t_stack *stack_a)
 	int	second;
 	int	third;
 
-	// if (stack_a == NULL || stack_a->first == NULL)
-	//     return ; // utile pour chaque fonction?
 	first = stack_a->first->index;
 	second = stack_a->first->next->index;
 	third = stack_a->first->next->next->index;
