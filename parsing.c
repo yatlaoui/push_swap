@@ -6,14 +6,28 @@
 /*   By: yasmine <yasmine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 16:43:33 by yaatlaou          #+#    #+#             */
-/*   Updated: 2024/11/01 22:39:33 by yasmine          ###   ########.fr       */
+/*   Updated: 2024/11/02 12:44:03 by yasmine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	display_error_and_exit(void)
+static void	display_error_and_exit(t_stack *stack, char **char_nbr)
 {
+	int	i;
+
+	if (char_nbr)
+	{
+		i = 0;
+		while (char_nbr[i])
+		{
+			free(char_nbr[i]);
+			i++;
+		}
+		free(char_nbr);
+	}
+	if (stack)
+		free_stack(stack);
 	ft_putstr_fd("Error\n", 2);
 	exit(EXIT_FAILURE);
 }
@@ -90,17 +104,18 @@ void	parse_and_fill(t_stack *stack, char *argv)
 	while (char_nbr[i] != 0)
 	{
 		if (is_number(char_nbr[i]) == 1)
-			display_error_and_exit();
+			display_error_and_exit(stack, char_nbr);
 		nbr = ft_atoi_long(char_nbr[i]);
 		if (nbr < INT_MIN || nbr > INT_MAX)
-			display_error_and_exit();
+			display_error_and_exit(stack, char_nbr);
 		if (is_double(stack, nbr) == 0)
 			add_node(stack, init_node(nbr));
 		else
-		{
-			free_stack(stack);
-			display_error_and_exit();
-		}
+			display_error_and_exit(stack, char_nbr);
 		i++;
 	}
+	i = 0;
+	while (char_nbr[i])
+		free(char_nbr[i++]);
+	free(char_nbr);
 }

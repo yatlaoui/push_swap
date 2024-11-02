@@ -6,27 +6,27 @@
 /*   By: yasmine <yasmine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 14:46:39 by yaatlaou          #+#    #+#             */
-/*   Updated: 2024/11/01 22:48:47 by yasmine          ###   ########.fr       */
+/*   Updated: 2024/11/02 12:34:00 by yasmine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-// #include <stdio.h>
-// void	print_stack(t_stack *stack)
-// {
-// 	t_node	*current;
+#include <stdio.h>
+void	print_stack(t_stack *stack)
+{
+	t_node	*current;
 
-// 	if (stack == NULL)
-// 		return ;
-// 	current = stack->first;
-// 	while (current != NULL)
-// 	{
-// 		printf("%d\n", current->data);
-// 		current = current->next;
-// 	}
-// 	printf("\n");
-// }
+	if (stack == NULL)
+		return ;
+	current = stack->first;
+	while (current != NULL)
+	{
+		printf("%d\n", current->data);
+		current = current->next;
+	}
+	printf("\n");
+}
 
 int	main(int argc, char **argv)
 {
@@ -43,9 +43,15 @@ int	main(int argc, char **argv)
 		parse_and_fill(stack_a, argv[i++]);
 	get_index(stack_a);
 	if (stack_a->size <= 5)
+	{
 		mini_sort(stack_a, stack_b);
-	else if (stack_a->size > 5)
-		// big_sort(stack_a, stack_b);
+		print_stack(stack_a);
+	}
+	// else if (stack_a->size > 5)
+	// {
+	// 	big_sort(stack_a, stack_b);
+	// 	print_stack(stack_a);
+	// }
 	free_stack(stack_a);
 	free_stack(stack_b);
 	return (0);
