@@ -6,7 +6,7 @@
 /*   By: yasmine <yasmine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 16:43:26 by yaatlaou          #+#    #+#             */
-/*   Updated: 2024/11/01 22:46:59 by yasmine          ###   ########.fr       */
+/*   Updated: 2024/11/03 01:21:26 by yasmine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ void				parse_and_fill(t_stack *stack, char *argv);
 
 t_node				*init_node(int value);
 t_stack				*init_stack(t_node *n);
+void				add_node(t_stack *stack, t_node *n);
 void				get_index(t_stack *stack);
 void				free_stack(t_stack *stack);
 
@@ -46,7 +47,6 @@ void				free_stack(t_stack *stack);
 
 t_node				*pop_first(t_stack *stack);
 t_node				*pop_last(t_stack *stack);
-void				add_node(t_stack *stack, t_node *n);
 void				push_node(t_stack *stack, t_node *noeud);
 
 void				op_sa(t_stack *stack_a);
@@ -68,6 +68,10 @@ int					is_sorted(t_stack *stack);
 int					get_position(t_stack *stack, int index);
 
 void				mini_sort(t_stack *stack_a, t_stack *stack_b);
+
+
+void				pre_sort(t_stack *stack_a, t_stack *stack_b);
+
 void				big_sort(t_stack *stack_a, t_stack *stack_b);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: yasmine <yasmine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/01 12:41:28 by yasmine           #+#    #+#             */
-/*   Updated: 2024/11/01 12:54:41 by yasmine          ###   ########.fr       */
+/*   Updated: 2024/11/03 01:18:52 by yasmine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,24 +18,6 @@ void	push_node(t_stack *stack, t_node *noeud)
 		return ;
 	noeud->next = stack->first;
 	stack->first = noeud;
-	stack->size = stack->size + 1;
-}
-
-void	add_node(t_stack *stack, t_node *noeud)
-{
-	t_node	*current;
-
-	if (stack == NULL || noeud == NULL)
-		return ;
-	if (stack->first == NULL)
-		stack->first = noeud;
-	else
-	{
-		current = stack->first;
-		while (current->next != NULL)
-			current = current->next;
-		current->next = noeud;
-	}
 	stack->size = stack->size + 1;
 }
 
