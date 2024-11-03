@@ -6,7 +6,7 @@
 /*   By: yasmine <yasmine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/01 12:41:28 by yasmine           #+#    #+#             */
-/*   Updated: 2024/11/03 01:18:52 by yasmine          ###   ########.fr       */
+/*   Updated: 2024/11/03 11:14:55 by yasmine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ t_node	*pop_first(t_stack *stack)
 		return (NULL);
 	first_elem = stack->first;
 	stack->first = stack->first->next;
+	stack->size = stack->size - 1;
 	return (first_elem);
 }
 
@@ -50,5 +51,6 @@ t_node	*pop_last(t_stack *stack)
 		current = current->next;
 	last_elem = current->next;
 	current->next = NULL;
+	stack->size = stack->size - 1;
 	return (last_elem);
 }

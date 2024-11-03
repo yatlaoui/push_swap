@@ -6,7 +6,7 @@
 /*   By: yasmine <yasmine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/02 11:26:03 by yasmine           #+#    #+#             */
-/*   Updated: 2024/11/03 01:03:18 by yasmine          ###   ########.fr       */
+/*   Updated: 2024/11/03 11:10:48 by yasmine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,12 +29,12 @@ static int	is_only_extreme(t_stack *stack, int q1, int q3)
 void	pre_sort(t_stack *stack_a, t_stack *stack_b)
 {
 	int		q1;
-    int		q2;
+	int		q2;
 	int		q3;
 	t_node	*current;
 
 	q1 = stack_a->size / 4;
-    q2 = (stack_a->size / 2) + 1;
+	q2 = (stack_a->size / 2) + 1;
 	q3 = stack_a->size - q1;
 	current = stack_a->first;
 	while (stack_a->size >= 3)
