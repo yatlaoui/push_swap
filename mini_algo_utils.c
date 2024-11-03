@@ -6,7 +6,7 @@
 /*   By: yasmine <yasmine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/01 01:09:52 by yasmine           #+#    #+#             */
-/*   Updated: 2024/11/01 13:40:43 by yasmine          ###   ########.fr       */
+/*   Updated: 2024/11/03 21:06:04 by yasmine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,24 @@ t_node	*find_min(t_stack *stack)
 		current = current->next;
 	}
 	return (min);
+}
+
+t_node	*find_max(t_stack *stack)
+{
+	t_node	*max;
+	t_node	*current;
+
+	if (stack == NULL || stack->first == NULL)
+		return (NULL);
+	max = stack->first;
+	current = stack->first;
+	while (current != NULL)
+	{
+		if (current->data > max->data)
+			max = current;
+		current = current->next;
+	}
+	return (max);
 }
 
 int	get_position(t_stack *stack, int index)

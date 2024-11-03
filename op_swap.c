@@ -6,7 +6,7 @@
 /*   By: yasmine <yasmine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/30 14:56:42 by yaatlaou          #+#    #+#             */
-/*   Updated: 2024/11/01 12:35:34 by yasmine          ###   ########.fr       */
+/*   Updated: 2024/11/03 20:59:40 by yasmine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,16 @@
 static void	swap(t_stack *stack)
 {
 	int	tmp;
+	int tmp_index;
 
 	if (stack == NULL || stack->size == 1)
 		return ;
 	tmp = stack->first->data;
+	tmp_index = stack->first->index;
 	stack->first->data = stack->first->next->data;
+	stack->first->index = stack->first->next->index;
 	stack->first->next->data = tmp;
+	stack->first->next->index = tmp_index;
 }
 
 void	op_sa(t_stack *stack_a)

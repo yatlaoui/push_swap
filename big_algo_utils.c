@@ -6,12 +6,11 @@
 /*   By: yasmine <yasmine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/02 11:26:03 by yasmine           #+#    #+#             */
-/*   Updated: 2024/11/03 18:36:10 by yasmine          ###   ########.fr       */
+/*   Updated: 2024/11/03 23:11:03 by yasmine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h>
 
 static int	get_median(t_stack *stack)
 {
@@ -47,11 +46,6 @@ void	pre_sort(t_stack *stack_a, t_stack *stack_b)
 	current = stack_a->first;
 	while (stack_a->size > 0)
 	{
-		printf("size = %d\n", stack_a->size);
-		printf("Stack A :");
-		print_stack(stack_a);
-		printf("Stack B :");
-		print_stack(stack_b);
 		current = stack_a->first;
 		if (current->index <= median && current->index >= q1)
 		{
@@ -72,5 +66,82 @@ void	pre_sort(t_stack *stack_a, t_stack *stack_b)
 		}
 		else // if (current->index > q3 || current->index < q1)
 			op_ra(stack_a);
+	}
+}
+
+// static void swap_if_sup(t_stack *stack)
+// {
+// 	t_node *current;
+
+// 	current = stack->first;
+// 	if (current->index < current->next->index)
+// 		op_sb(stack);
+// }
+
+static void rotate_to_position(t_stack *stack, int position)
+{
+	int cpt;
+
+	cpt = 0;
+	// printf("pos : %d",position);
+	while (cpt != position)
+	{
+		op_rb(stack);
+		// printf("in rotate\n");
+		// print_stack(stack);
+		cpt++;
+	}
+	// printf("after rotate\n");
+	// print_stack(stack);
+}
+
+static void r_rotate_to_position(t_stack *stack, int position)
+{
+	int cpt;
+
+	cpt = stack->size;
+	while (cpt > position)
+	{	
+		op_rrb(stack);
+		cpt--;
+	}
+	// printf("after r rotqte\n");
+	// print_stack(stack);
+}
+
+void super_push(t_stack *stack_a, t_stack *stack_b)
+{
+	t_node *current;
+	t_node *max;
+	unsigned int position;
+
+
+	while (stack_b->size > 0)
+	{
+		// printf("Stack A :");
+		// print_stack(stack_a);
+		// printf("Stack B :");
+		// print_stack(stack_b);
+		// //swap_if_sup(stack_b);
+		// printf("size b : %d ", stack_b->size);
+		current = stack_b->first;
+		max = find_max(stack_b);
+		position = get_position(stack_b, max->index);
+		// printf("position %d\n",position);
+		if (position == 0 && current->index == max->index)
+			op_pa(stack_a, stack_b);
+		else
+		{
+			if (position >= (stack_b->size / 2))
+			{
+				r_rotate_to_position(stack_b, position);
+				op_pa(stack_a, stack_b);
+			}
+			else
+			{
+				rotate_to_position(stack_b, position);
+				op_pa(stack_a, stack_b);
+			}
+		}
 	}
 }
