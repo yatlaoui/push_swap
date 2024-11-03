@@ -6,17 +6,17 @@
 /*   By: yasmine <yasmine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/02 11:26:03 by yasmine           #+#    #+#             */
-/*   Updated: 2024/11/03 16:36:37 by yasmine          ###   ########.fr       */
+/*   Updated: 2024/11/03 18:36:10 by yasmine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include <stdio.h>
 
-static int get_median(t_stack *stack)
+static int	get_median(t_stack *stack)
 {
 	if (stack->size % 2 == 0)
-		return ((stack->size + 1) / 2 );
+		return ((stack->size + 1) / 2);
 	return (stack->size / 2);
 }
 
@@ -52,16 +52,13 @@ void	pre_sort(t_stack *stack_a, t_stack *stack_b)
 		print_stack(stack_a);
 		printf("Stack B :");
 		print_stack(stack_b);
-		printf("q1 : %d\n", q1);
-		printf("median : %d\n", median);
-		printf("q3 : %d\n", q3);
 		current = stack_a->first;
-		if (current->index < median && current->index >= q1)
+		if (current->index <= median && current->index >= q1)
 		{
 			op_pb(stack_a, stack_b);
 			op_rb(stack_b);
 		}
-		else if (current->index >= median && current->index <= q3)
+		else if (current->index > median && current->index <= q3)
 			op_pb(stack_a, stack_b);
 		else if (is_only_extreme(stack_a, q1, q3) == 0)
 		{

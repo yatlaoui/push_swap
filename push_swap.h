@@ -6,7 +6,7 @@
 /*   By: yasmine <yasmine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 16:43:26 by yaatlaou          #+#    #+#             */
-/*   Updated: 2024/11/03 13:06:15 by yasmine          ###   ########.fr       */
+/*   Updated: 2024/11/03 17:12:32 by yasmine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ typedef struct s_stack
 	unsigned int	size;
 	t_node			*first;
 }					t_stack;
+
+void				print_stack(t_stack *stack);
 
 /* Parsing */
 
@@ -66,15 +68,9 @@ void				op_pb(t_stack *stack_a, t_stack *stack_b);
 t_node				*find_min(t_stack *stack);
 int					is_sorted(t_stack *stack);
 int					get_position(t_stack *stack, int index);
-
-void				mini_sort(t_stack *stack_a, t_stack *stack_b);
-
-
 void				pre_sort(t_stack *stack_a, t_stack *stack_b);
 
+void				mini_sort(t_stack *stack_a, t_stack *stack_b);
 void				big_sort(t_stack *stack_a, t_stack *stack_b);
 
-
-
-void	print_stack(t_stack *stack);
 #endif
