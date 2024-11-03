@@ -6,7 +6,7 @@
 /*   By: yasmine <yasmine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 21:10:49 by yasmine           #+#    #+#             */
-/*   Updated: 2024/11/04 00:03:04 by yasmine          ###   ########.fr       */
+/*   Updated: 2024/11/04 00:21:25 by yasmine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static void	pre_sort(t_stack *stack_a, t_stack *stack_b)
 	q1 = stack_a->size / 4;
 	q3 = (3 * stack_a->size) / 4;
 	median = get_median(stack_a);
-	current = stack_a->first;
+	current = stack_a->first; //jcrois que je peux retirer ça
 	while (stack_a->size > 0)
 	{
 		current = stack_a->first;
