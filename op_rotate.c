@@ -6,7 +6,7 @@
 /*   By: yasmine <yasmine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/30 14:56:39 by yaatlaou          #+#    #+#             */
-/*   Updated: 2024/11/01 12:35:16 by yasmine          ###   ########.fr       */
+/*   Updated: 2024/11/03 12:30:57 by yasmine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,7 @@ static void	rotate(t_stack *stack)
 
 	if (stack == NULL || stack->size == 1)
 		return ;
-	elem = stack->first;
-	stack->first = stack->first->next;
-	elem->next = NULL;
+	elem = pop_first(stack);
 	add_node(stack, elem);
 }
 

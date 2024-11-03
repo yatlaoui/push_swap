@@ -6,14 +6,14 @@
 #    By: yasmine <yasmine@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/19 16:11:48 by yaatlaou          #+#    #+#              #
-#    Updated: 2024/11/02 11:28:40 by yasmine          ###   ########.fr        #
+#    Updated: 2024/11/03 11:46:01 by yasmine          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
 
 CC = cc
-CFLAGS = -Wall -Werror -Wextra
+CFLAGS = -Wall -Werror -Wextra -g
 
 LIBFT_DIR = libft
 LIBFT = $(LIBFT_DIR)/libft.a

@@ -6,7 +6,7 @@
 /*   By: yasmine <yasmine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 14:46:39 by yaatlaou          #+#    #+#             */
-/*   Updated: 2024/11/03 00:59:30 by yasmine          ###   ########.fr       */
+/*   Updated: 2024/11/03 12:41:06 by yasmine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,13 @@ void	print_stack(t_stack *stack)
 	if (stack == NULL)
 		return ;
 	current = stack->first;
+	printf("[");
 	while (current != NULL)
 	{
-		printf("%d\n", current->data);
+		printf(" %d ", current->data);
 		current = current->next;
 	}
+	printf("]");
 	printf("\n");
 }
 
