@@ -6,7 +6,7 @@
 /*   By: yasmine <yasmine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 14:46:39 by yaatlaou          #+#    #+#             */
-/*   Updated: 2024/11/03 12:41:06 by yasmine          ###   ########.fr       */
+/*   Updated: 2024/11/03 16:22:33 by yasmine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,10 @@ int	main(int argc, char **argv)
 		parse_and_fill(stack_a, argv[i++]);
 	get_index(stack_a);
 	if (stack_a->size <= 5)
+	{
 		mini_sort(stack_a, stack_b);
+		print_stack(stack_a);
+	}
 	else if (stack_a->size > 5)
 	{
 		pre_sort(stack_a, stack_b);

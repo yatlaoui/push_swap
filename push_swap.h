@@ -6,7 +6,7 @@
 /*   By: yasmine <yasmine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 16:43:26 by yaatlaou          #+#    #+#             */
-/*   Updated: 2024/11/03 01:21:26 by yasmine          ###   ########.fr       */
+/*   Updated: 2024/11/03 13:06:15 by yasmine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,4 +74,7 @@ void				pre_sort(t_stack *stack_a, t_stack *stack_b);
 
 void				big_sort(t_stack *stack_a, t_stack *stack_b);
 
+
+
+void	print_stack(t_stack *stack);
 #endif
