@@ -6,15 +6,27 @@
 /*   By: yaatlaou <yaatlaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 21:10:49 by yasmine           #+#    #+#             */
-/*   Updated: 2024/11/04 10:23:01 by yaatlaou         ###   ########.fr       */
+/*   Updated: 2024/11/04 11:15:35 by yaatlaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-// static 
+static void	op_extreme(t_stack *stack_a, t_stack *stack_b, int q1, int q3)
+{
+	t_node	*current;
 
-static void	pre_sort_in_b(t_stack *stack_a, t_stack *stack_b)
+	current = stack_a->first;
+	if (current->index <= q1)
+	{
+		op_pb(stack_a, stack_b);
+		op_rb(stack_b);
+	}
+	if (current->index >= q3)
+		op_pb(stack_a, stack_b);
+}
+
+static void	pre_sort_to_b(t_stack *stack_a, t_stack *stack_b)
 {
 	int		q1;
 	int		q3;
@@ -35,15 +47,7 @@ static void	pre_sort_in_b(t_stack *stack_a, t_stack *stack_b)
 		else if (current->index > median && current->index <= q3)
 			op_pb(stack_a, stack_b);
 		else if (is_only_extreme(stack_a, q1, q3) == 0)
-		{
-			if (current->index <= q1)
-			{
-				op_pb(stack_a, stack_b);
-				op_rb(stack_b);
-			}
-			if (current->index >= q3)
-				op_pb(stack_a, stack_b);
-		}
+			op_extreme(stack_a, stack_b, q1, q3);
 		else
 			op_ra(stack_a);
 	}
@@ -60,7 +64,7 @@ static void	last_push_to_a(t_stack *stack_a, t_stack *stack_b)
 		current = stack_b->first;
 		max = find_max(stack_b);
 		position = get_position(stack_b, max->index);
-		if (position == 0 && current->index == max->index) /*possible de retirer*/
+		if (position == 0 && current->index == max->index)
 			op_pa(stack_a, stack_b);
 		else
 		{
@@ -82,7 +86,7 @@ void	big_sort(t_stack *stack_a, t_stack *stack_b)
 {
 	if (is_sorted(stack_a) == 0)
 	{
-		pre_sort(stack_a, stack_b);
-		super_push(stack_a, stack_b);
+		pre_sort_to_b(stack_a, stack_b);
+		last_push_to_a(stack_a, stack_b);
 	}
 }
