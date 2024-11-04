@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   op_push.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yasmine <yasmine@student.42.fr>            +#+  +:+       +#+        */
+/*   By: yaatlaou <yaatlaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/30 14:56:28 by yaatlaou          #+#    #+#             */
-/*   Updated: 2024/11/01 12:34:45 by yasmine          ###   ########.fr       */
+/*   Updated: 2024/11/04 10:14:49 by yaatlaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,11 @@ static void	push(t_stack *src, t_stack *dest)
 void	op_pa(t_stack *stack_a, t_stack *stack_b)
 {
 	push(stack_b, stack_a);
-	ft_putstr("pa\n");
+	ft_putstr_fd("pa\n", 1);
 }
 
 void	op_pb(t_stack *stack_a, t_stack *stack_b)
 {
 	push(stack_a, stack_b);
-	ft_putstr("pb\n");
+	ft_putstr_fd("pb\n", 1);
 }

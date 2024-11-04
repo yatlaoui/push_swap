@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   op_r_rotate.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yasmine <yasmine@student.42.fr>            +#+  +:+       +#+        */
+/*   By: yaatlaou <yaatlaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/30 14:56:34 by yaatlaou          #+#    #+#             */
-/*   Updated: 2024/11/01 12:35:03 by yasmine          ###   ########.fr       */
+/*   Updated: 2024/11/04 10:14:27 by yaatlaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,18 +25,18 @@ static void	reverse_rotate(t_stack *stack)
 void	op_rra(t_stack *stack_a)
 {
 	reverse_rotate(stack_a);
-	ft_putstr("rra\n");
+	ft_putstr_fd("rra\n", 1);
 }
 
 void	op_rrb(t_stack *stack_b)
 {
 	reverse_rotate(stack_b);
-	ft_putstr("rrb\n");
+	ft_putstr_fd("rrb\n", 1);
 }
 
 void	op_rrr(t_stack *stack_a, t_stack *stack_b)
 {
 	reverse_rotate(stack_a);
 	reverse_rotate(stack_b);
-	ft_putstr("rrr\n");
+	ft_putstr_fd("rrr\n", 1);
 }

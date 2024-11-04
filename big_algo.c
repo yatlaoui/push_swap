@@ -3,16 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   big_algo.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yasmine <yasmine@student.42.fr>            +#+  +:+       +#+        */
+/*   By: yaatlaou <yaatlaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 21:10:49 by yasmine           #+#    #+#             */
-/*   Updated: 2024/11/04 00:21:25 by yasmine          ###   ########.fr       */
+/*   Updated: 2024/11/04 10:23:01 by yaatlaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	pre_sort(t_stack *stack_a, t_stack *stack_b)
+// static 
+
+static void	pre_sort_in_b(t_stack *stack_a, t_stack *stack_b)
 {
 	int		q1;
 	int		q3;
@@ -22,7 +24,6 @@ static void	pre_sort(t_stack *stack_a, t_stack *stack_b)
 	q1 = stack_a->size / 4;
 	q3 = (3 * stack_a->size) / 4;
 	median = get_median(stack_a);
-	current = stack_a->first; //jcrois que je peux retirer ça
 	while (stack_a->size > 0)
 	{
 		current = stack_a->first;
@@ -48,7 +49,7 @@ static void	pre_sort(t_stack *stack_a, t_stack *stack_b)
 	}
 }
 
-static void	super_push(t_stack *stack_a, t_stack *stack_b)
+static void	last_push_to_a(t_stack *stack_a, t_stack *stack_b)
 {
 	t_node			*current;
 	t_node			*max;
@@ -59,7 +60,7 @@ static void	super_push(t_stack *stack_a, t_stack *stack_b)
 		current = stack_b->first;
 		max = find_max(stack_b);
 		position = get_position(stack_b, max->index);
-		if (position == 0 && current->index == max->index)
+		if (position == 0 && current->index == max->index) /*possible de retirer*/
 			op_pa(stack_a, stack_b);
 		else
 		{

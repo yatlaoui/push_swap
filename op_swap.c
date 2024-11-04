@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   op_swap.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yasmine <yasmine@student.42.fr>            +#+  +:+       +#+        */
+/*   By: yaatlaou <yaatlaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/30 14:56:42 by yaatlaou          #+#    #+#             */
-/*   Updated: 2024/11/03 23:46:58 by yasmine          ###   ########.fr       */
+/*   Updated: 2024/11/04 10:13:59 by yaatlaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,18 +30,18 @@ static void	swap(t_stack *stack)
 void	op_sa(t_stack *stack_a)
 {
 	swap(stack_a);
-	ft_putstr("sa\n");
+	ft_putstr_fd("sa\n", 1);
 }
 
 void	op_sb(t_stack *stack_b)
 {
 	swap(stack_b);
-	ft_putstr("sb\n");
+	ft_putstr_fd("sb\n", 1);
 }
 
 void	op_ss(t_stack *stack_a, t_stack *stack_b)
 {
 	op_sa(stack_a);
 	op_sb(stack_b);
-	ft_putstr("ss\n");
+	ft_putstr_fd("ss\n", 1);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yasmine <yasmine@student.42.fr>            +#+  +:+       +#+        */
+/*   By: yaatlaou <yaatlaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 16:43:26 by yaatlaou          #+#    #+#             */
-/*   Updated: 2024/11/03 23:56:38 by yasmine          ###   ########.fr       */
+/*   Updated: 2024/11/04 10:05:38 by yaatlaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,12 +67,12 @@ t_node				*find_min(t_stack *stack);
 t_node				*find_max(t_stack *stack);
 int					is_sorted(t_stack *stack);
 int					get_position(t_stack *stack, int index);
-void				mini_sort(t_stack *stack_a, t_stack *stack_b);
-
 int					get_median(t_stack *stack);
 int					is_only_extreme(t_stack *stack, int q1, int q3);
 void				rotate_to_position(t_stack *stack, int position);
 void				r_rotate_to_position(t_stack *stack, int position);
+
+void				mini_sort(t_stack *stack_a, t_stack *stack_b);
 void				big_sort(t_stack *stack_a, t_stack *stack_b);
 
 #endif
