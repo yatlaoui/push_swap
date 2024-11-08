@@ -6,7 +6,7 @@
 /*   By: yasmine <yasmine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 14:46:39 by yaatlaou          #+#    #+#             */
-/*   Updated: 2024/11/08 08:11:50 by yasmine          ###   ########.fr       */
+/*   Updated: 2024/11/08 12:37:58 by yasmine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,8 @@ void	print_stack(t_stack *stack)
 	printf("[");
 	while (current != NULL)
 	{
-		printf(" %d ", current->data);
+		//printf(" (v: %d, c: %d, i:%d) ", current->data,current->move_cost, current->index);
+		printf(" (%d) ", current->index);
 		current = current->next;
 	}
 	printf("]");
@@ -50,6 +51,7 @@ int	main(int argc, char **argv)
 	{
 		big_sort(stack_a, stack_b);
 		print_stack(stack_a);
+		print_stack(stack_b);
 	}
 	free_stack(stack_a);
 	free_stack(stack_b);

@@ -6,7 +6,7 @@
 /*   By: yasmine <yasmine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/28 22:37:50 by yasmine           #+#    #+#             */
-/*   Updated: 2024/11/03 11:40:40 by yasmine          ###   ########.fr       */
+/*   Updated: 2024/11/08 08:21:54 by yasmine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ t_node	*init_node(int value)
 		return (NULL);
 	noeud->data = value;
 	noeud->index = 0;
+	noeud->move_cost = -1;
 	noeud->next = NULL;
 	return (noeud);
 }

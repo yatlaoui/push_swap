@@ -6,13 +6,13 @@
 /*   By: yasmine <yasmine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/02 21:46:32 by yasmine           #+#    #+#             */
-/*   Updated: 2024/11/01 13:44:43 by yasmine          ###   ########.fr       */
+/*   Updated: 2024/11/08 08:26:23 by yasmine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	sort_three(t_stack *stack_a)
+void	sort_three(t_stack *stack_a)
 {
 	int	first;
 	int	second;
