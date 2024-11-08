@@ -6,7 +6,7 @@
 /*   By: yasmine <yasmine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 16:43:33 by yaatlaou          #+#    #+#             */
-/*   Updated: 2024/11/02 12:44:03 by yasmine          ###   ########.fr       */
+/*   Updated: 2024/11/08 08:10:30 by yasmine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,10 @@ static void	display_error_and_exit(t_stack *stack, char **char_nbr)
 		}
 		free(char_nbr);
 	}
+
 	if (stack)
 		free_stack(stack);
+	
 	ft_putstr_fd("Error\n", 2);
 	exit(EXIT_FAILURE);
 }
@@ -114,8 +116,4 @@ void	parse_and_fill(t_stack *stack, char *argv)
 			display_error_and_exit(stack, char_nbr);
 		i++;
 	}
-	i = 0;
-	while (char_nbr[i])
-		free(char_nbr[i++]);
-	free(char_nbr);
 }
