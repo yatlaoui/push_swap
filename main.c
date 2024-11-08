@@ -20,15 +20,15 @@ void	print_stack(t_stack *stack)
 	if (stack == NULL)
 		return ;
 	current = stack->first;
-	printf("[");
+	fprintf(stderr,"[");
 	while (current != NULL)
 	{
 		//printf(" (v: %d, c: %d, i:%d) ", current->data,current->move_cost, current->index);
-		printf(" (%d) ", current->index);
+		fprintf(stderr," (%d) ", current->index);
 		current = current->next;
 	}
-	printf("]");
-	printf("\n");
+	fprintf(stderr,"]");
+	fprintf(stderr,"\n");
 }
 
 int	main(int argc, char **argv)
@@ -41,17 +41,22 @@ int	main(int argc, char **argv)
 		return (0);
 	i = 1;
 	stack_a = init_stack(NULL);
+	
 	while (i < argc)
 		parse_and_fill(stack_a, argv[i++]);
+	
 	stack_b = init_stack(NULL);
 	get_index(stack_a);
 	if (stack_a->size <= 5)
 		mini_sort(stack_a, stack_b);
 	if (stack_a->size > 5)
 	{
+		// do a print on error
+		print_stack(stack_a);
 		big_sort(stack_a, stack_b);
 		print_stack(stack_a);
 		print_stack(stack_b);
+		
 	}
 	free_stack(stack_a);
 	free_stack(stack_b);
