@@ -111,33 +111,27 @@ static void	compute_move_cost(t_stack *stack)
 
 
 static t_node* find_next_index(t_stack *stack, t_node* target_node){
-	t_node *current;
-	t_node *value;
-	current = stack->first;
-	value = current;
-	while (current != NULL)
-	{	
-		if(current->index > value->index && current->index > target_node->index)
-			value = current;
+	t_node *current = stack->first;
+	t_node *value = NULL;
+	int diff_value = __INT_MAX__;  // Set to a large value initially
+
+	while (current != NULL) {	
+		// Check if current node's index is greater than target node's index
+		if (current->index > target_node->index) {
+			int current_diff = current->index - target_node->index;
+
+			// If this is the closest upper index so far, update `value` and `diff_value`
+			if (current_diff < diff_value) {
+				value = current;
+				diff_value = current_diff;
+			}
+		}
 		current = current->next;
 	}
 	return value;
 }
 
 
-static t_node* find_previous_index(t_stack *stack, t_node* target_node){
-	t_node *current;
-	t_node *value;
-	current = stack->first;
-	value = current;
-	while (current != NULL)
-	{	
-		if(current->index > value->index && current->index < target_node->index)
-			value = current;
-		current = current->next;
-	}
-	return value;
-}
 static t_node* find_cheapest(t_stack *stack)
 {
 	t_node *current;
@@ -157,7 +151,6 @@ static void	compute_cost(t_stack *stack_a, t_stack *stack_b)
 {
 	t_node *current_b;
 	t_node *next_index;
-	t_node *previous_index;
 
 	current_b = stack_b->first;
 	
@@ -166,11 +159,7 @@ static void	compute_cost(t_stack *stack_a, t_stack *stack_b)
 	while (current_b != NULL)
 	{
 		next_index = find_next_index(stack_a,current_b);
-		previous_index = find_previous_index(stack_a,current_b);
-		if (next_index->move_cost > previous_index->move_cost)
-			current_b->move_cost = current_b->move_cost+previous_index->move_cost;
-		else
-			current_b->move_cost = current_b->move_cost+next_index->move_cost;
+		current_b->move_cost = current_b->move_cost+next_index->move_cost;
 		current_b = current_b->next;
 	}
 }
@@ -178,47 +167,45 @@ static void	compute_cost(t_stack *stack_a, t_stack *stack_b)
 static void move_node_to_push_position(t_stack * stack, t_node* target_node)
 {
 	unsigned int	position;
+	
+	if (stack == NULL || target_node == NULL || stack->size == 0) 
+		return ;	
+	
 	position = get_position(stack, target_node->index);
-
 	if (position >= (stack->size / 2))
  		r_rotate_to_position(stack, position);
  	else
  		rotate_to_position(stack, position);
+	printf("AAAABB \n");
 }
 
 static void	optimized_push_to_a(t_stack *stack_a, t_stack *stack_b)
 {
 	t_node *current_b;
 	t_node *upper_index;
-	t_node *lower_index;
 	
 	
 	sort_three(stack_a);
 	while (stack_b->size > 0)
 	{
-
 		compute_cost(stack_a, stack_b);
 		current_b = find_cheapest(stack_b);
+		if (current_b == NULL)
+			break;
 		upper_index = find_next_index(stack_a,current_b);
-		lower_index = find_previous_index(stack_a,current_b);
 		
 		printf("Current %d :", current_b->index);
 		printf("upper_index %d :", upper_index->index);
-		printf("lower_index %d : \n", lower_index->index);
 		printf("stack A: ");
 		print_stack(stack_a);
 		printf("stack B: ");
 		print_stack(stack_b);
 		move_node_to_push_position(stack_b, current_b);
-		if (upper_index->move_cost >lower_index->move_cost)
-			move_node_to_push_position(stack_a, lower_index);
-		else
-			move_node_to_push_position(stack_a, upper_index);
+		
+		move_node_to_push_position(stack_a, upper_index);
 		op_pa(stack_a, stack_b);	
-
 	}
-	
-	
+	move_node_to_push_position(stack_a, find_min(stack_a));
 }
 
 void	big_sort(t_stack *stack_a, t_stack *stack_b)
@@ -227,7 +214,6 @@ void	big_sort(t_stack *stack_a, t_stack *stack_b)
 	{
 		pre_sort_to_b(stack_a, stack_b);
 		optimized_push_to_a(stack_a, stack_b);
+		printf("AAAACC \n");
 	}
 }
-
- 

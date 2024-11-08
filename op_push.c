@@ -21,6 +21,8 @@ static void	push(t_stack *src, t_stack *dest)
 
 void	op_pa(t_stack *stack_a, t_stack *stack_b)
 {
+	if (stack_b->size == 0)
+		return ;
 	push(stack_b, stack_a);
 	ft_putstr_fd("pa\n", 1);
 }
