@@ -6,7 +6,7 @@
 /*   By: yasmine <yasmine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 16:43:26 by yaatlaou          #+#    #+#             */
-/*   Updated: 2024/11/08 12:12:31 by yasmine          ###   ########.fr       */
+/*   Updated: 2024/11/09 00:15:32 by yasmine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,5 +76,5 @@ void				r_rotate_to_position(t_stack *stack, int position);
 void				mini_sort(t_stack *stack_a, t_stack *stack_b);
 void				big_sort(t_stack *stack_a, t_stack *stack_b);
 void				sort_three(t_stack *stack_a);
-void	print_stack(t_stack *stack);
+
 #endif
