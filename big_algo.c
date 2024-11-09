@@ -6,7 +6,7 @@
 /*   By: yasmine <yasmine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 21:10:49 by yasmine           #+#    #+#             */
-/*   Updated: 2024/11/09 01:57:32 by yasmine          ###   ########.fr       */
+/*   Updated: 2024/11/09 16:59:56 by yasmine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -146,7 +146,7 @@ static void	compute_cost(t_stack *stack_a, t_stack *stack_b)
 }
 
 static void	move_node_to_push_position(t_stack *stack, t_node *target_node,
-		t_node *node_to_place)
+		t_node *node_to_place, int is_a)
 {
 	unsigned int	position;
 
@@ -159,9 +159,9 @@ static void	move_node_to_push_position(t_stack *stack, t_node *target_node,
 			position = position + 1;
 	}
 	if (position >= (stack->size / 2))
-		r_rotate_to_position(stack, position);
+		r_rotate_to_position(stack, position,is_a);
 	else
-		rotate_to_position(stack, position);
+		rotate_to_position(stack, position,is_a);
 }
 
 static void	optimized_push_to_a(t_stack *stack_a, t_stack *stack_b)
@@ -177,11 +177,11 @@ static void	optimized_push_to_a(t_stack *stack_a, t_stack *stack_b)
 		if (current_b == NULL)
 			break ;
 		upper_index = find_next_index(stack_a, current_b);
-		move_node_to_push_position(stack_b, current_b, NULL);
-		move_node_to_push_position(stack_a, upper_index, current_b);
+		move_node_to_push_position(stack_b, current_b, NULL, 0);
+		move_node_to_push_position(stack_a, upper_index, current_b,1);
 		op_pa(stack_a, stack_b);
 	}
-	move_node_to_push_position(stack_a, find_min(stack_a), NULL);
+	move_node_to_push_position(stack_a, find_min(stack_a), NULL,1);
 }
 
 void	big_sort(t_stack *stack_a, t_stack *stack_b)

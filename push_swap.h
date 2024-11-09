@@ -6,7 +6,7 @@
 /*   By: yasmine <yasmine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 16:43:26 by yaatlaou          #+#    #+#             */
-/*   Updated: 2024/11/09 00:15:32 by yasmine          ###   ########.fr       */
+/*   Updated: 2024/11/09 16:50:52 by yasmine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,8 +70,8 @@ int					is_sorted(t_stack *stack);
 int					get_position(t_stack *stack, int index);
 int					get_median(t_stack *stack);
 int					is_only_extreme(t_stack *stack, int q1, int q3);
-void				rotate_to_position(t_stack *stack, int position);
-void				r_rotate_to_position(t_stack *stack, int position);
+void				rotate_to_position(t_stack *stack, int position, int is_a);
+void				r_rotate_to_position(t_stack *stack, int position, int is_a);
 
 void				mini_sort(t_stack *stack_a, t_stack *stack_b);
 void				big_sort(t_stack *stack_a, t_stack *stack_b);
