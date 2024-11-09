@@ -6,7 +6,7 @@
 /*   By: yasmine <yasmine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 16:43:33 by yaatlaou          #+#    #+#             */
-/*   Updated: 2024/11/09 01:43:33 by yasmine          ###   ########.fr       */
+/*   Updated: 2024/11/09 02:05:47 by yasmine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,6 +91,8 @@ static int	is_double(t_stack *stack, int nbr)
 	return (0);
 }
 
+
+
 void	parse_and_fill(t_stack *stack, char *argv)
 {
 	int		i;
@@ -114,7 +116,6 @@ void	parse_and_fill(t_stack *stack, char *argv)
 			display_error_and_exit(stack, char_nbr);
 		i++;
 	}
-
 	if (char_nbr)
 	{
 		i = 0;

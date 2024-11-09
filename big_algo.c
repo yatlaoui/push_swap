@@ -6,7 +6,7 @@
 /*   By: yasmine <yasmine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 21:10:49 by yasmine           #+#    #+#             */
-/*   Updated: 2024/11/09 01:47:21 by yasmine          ###   ########.fr       */
+/*   Updated: 2024/11/09 01:57:32 by yasmine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,8 +86,8 @@ static t_node	*find_next_index(t_stack *stack, t_node *target_node)
 	int		diff_value;
 	int		current_diff;
 
-	if (stack == NULL || target_node == NULL || stack->size == 0)
-		return (NULL);
+	// if (stack == NULL || target_node == NULL || stack->size == 0)
+	// 	return (NULL);
 	current = stack->first;
 	diff_value = __INT_MAX__;
 	value = find_max(stack);
