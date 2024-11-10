@@ -6,31 +6,32 @@
 /*   By: yasmine <yasmine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 14:46:39 by yaatlaou          #+#    #+#             */
-/*   Updated: 2024/11/10 00:05:50 by yasmine          ###   ########.fr       */
+/*   Updated: 2024/11/10 10:28:46 by yasmine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-// #include <stdio.h>
+#include <stdio.h>
 
-// void	print_stack(t_stack *stack)
-// {
-// 	t_node	*current;
+void	print_stack(t_stack *stack)
+{
+	t_node	*current;
 
-// 	if (stack == NULL)
-// 		return ;
-// 	current = stack->first;
-// 	fprintf(stderr,"[");
-// 	while (current != NULL)
-// 	{
-// 		//printf(" (v: %d, c: %d, i:%d) ", current->data,current->move_cost, current->index)
-// 		fprintf(stderr," (%d) ", current->data);
-// 		current = current->next;
-// 	}
-// 	fprintf(stderr,"]");
-// 	fprintf(stderr,"\n");
-// }
+	if (stack == NULL)
+		return ;
+	current = stack->first;
+	fprintf(stderr,"[");
+	while (current != NULL)
+	{
+		//printf(" (v: %d, c: %d, i:%d) ", current->data,current->move_cost,
+			// current->index);
+		fprintf(stderr," (%d) ", current->data);
+		current = current->next;
+	}
+	fprintf(stderr,"]");
+	fprintf(stderr,"\n");
+}
 
 int	main(int argc, char **argv)
 {
@@ -51,7 +52,7 @@ int	main(int argc, char **argv)
 	if (stack_a->size > 5)
 	{
 		big_sort(stack_a, stack_b);
-		// print_stack(stack_a);	
+		print_stack(stack_a);
 	}
 	free_stack(stack_a);
 	free_stack(stack_b);

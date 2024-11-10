@@ -6,7 +6,7 @@
 /*   By: yasmine <yasmine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/02 11:26:03 by yasmine           #+#    #+#             */
-/*   Updated: 2024/11/09 22:56:24 by yasmine          ###   ########.fr       */
+/*   Updated: 2024/11/10 10:35:03 by yasmine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,14 +47,14 @@ void	op_extreme(t_stack *stack_a, t_stack *stack_b, int q1, int q3)
 		op_pb(stack_a, stack_b);
 }
 
-void	rotate_to_position(t_stack *stack, int position, int is_a)
+void	rotate_to_position(t_stack *stack, int position, int print_stack_a)
 {
 	int	cpt;
 
 	cpt = 0;
 	while (cpt != position)
 	{
-		if (is_a)
+		if (print_stack_a)
 			op_ra(stack);
 		else
 			op_rb(stack);
@@ -62,14 +62,14 @@ void	rotate_to_position(t_stack *stack, int position, int is_a)
 	}
 }
 
-void	r_rotate_to_position(t_stack *stack, int position, int is_a)
+void	r_rotate_to_position(t_stack *stack, int position, int print_stack_a)
 {
 	int	cpt;
 
 	cpt = stack->size;
 	while (cpt > position)
 	{
-		if (is_a)
+		if (print_stack_a)
 			op_rra(stack);
 		else
 			op_rrb(stack);

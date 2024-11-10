@@ -6,7 +6,7 @@
 /*   By: yasmine <yasmine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 16:43:26 by yaatlaou          #+#    #+#             */
-/*   Updated: 2024/11/10 02:21:14 by yasmine          ###   ########.fr       */
+/*   Updated: 2024/11/10 10:35:28 by yasmine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,13 +75,13 @@ int					get_median(t_stack *stack);
 int					is_only_extreme(t_stack *stack, int q1, int q3);
 void				compute_move_cost(t_stack *stack);
 void				compute_cost(t_stack *stack_a, t_stack *stack_b);
-void				rotate_to_position(t_stack *stack, int position, int is_a);
+void				rotate_to_position(t_stack *stack, int position, int print_stack_a);
 void				r_rotate_to_position(t_stack *stack, int position,
-						int is_a);
+						int print_stack_a);
 void				op_extreme(t_stack *stack_a, t_stack *stack_b, int q1,
 						int q3);
 t_node				*find_cheapest(t_stack *stack);
-t_node				*find_next_index(t_stack *stack, t_node *target_node,
+t_node				*find_next_index(t_stack *stack, t_node *target_node_b,
 						int diff_value);
 
 void				mini_sort(t_stack *stack_a, t_stack *stack_b);

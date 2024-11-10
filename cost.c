@@ -6,7 +6,7 @@
 /*   By: yasmine <yasmine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 22:42:58 by yasmine           #+#    #+#             */
-/*   Updated: 2024/11/09 22:55:10 by yasmine          ###   ########.fr       */
+/*   Updated: 2024/11/10 10:27:34 by yasmine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,8 +65,8 @@ void	compute_cost(t_stack *stack_a, t_stack *stack_b)
 	while (current_b != NULL)
 	{
 		next_index = find_next_index(stack_a, current_b, __INT_MAX__);
-		if (next_index == NULL)
-			next_index = find_max(stack_a);
+		// if (next_index == NULL)
+		// 	next_index = find_max(stack_a);
 		current_b->move_cost = current_b->move_cost + next_index->move_cost;
 		current_b = current_b->next;
 	}

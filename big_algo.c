@@ -6,7 +6,7 @@
 /*   By: yasmine <yasmine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 21:10:49 by yasmine           #+#    #+#             */
-/*   Updated: 2024/11/10 00:02:32 by yasmine          ###   ########.fr       */
+/*   Updated: 2024/11/10 10:34:08 by yasmine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ static void	pre_sort_to_b(t_stack *stack_a, t_stack *stack_b)
 	}
 }
 
-t_node	*find_next_index(t_stack *stack, t_node *target_node,
+t_node	*find_next_index(t_stack *stack, t_node *target_node_b,
 		int diff_value)
 {
 	t_node	*current;
@@ -48,15 +48,15 @@ t_node	*find_next_index(t_stack *stack, t_node *target_node,
 
 	current = stack->first;
 	value = find_max(stack);
-	if (value->index < target_node->index)
+	if (value->index < target_node_b->index)
 		return (value);
 	else
 		value = NULL;
 	while (current != NULL)
 	{
-		if (current->index > target_node->index)
+		if (current->index > target_node_b->index)
 		{
-			current_diff = current->index - target_node->index;
+			current_diff = current->index - target_node_b->index;
 			if (current_diff < diff_value)
 			{
 				value = current;
@@ -69,7 +69,7 @@ t_node	*find_next_index(t_stack *stack, t_node *target_node,
 }
 
 static void	move_node_to_push_position(t_stack *stack, t_node *target_node,
-		t_node *node_to_place, int is_a)
+		t_node *node_to_place, int print_stack_a)
 {
 	unsigned int	position;
 
@@ -82,9 +82,9 @@ static void	move_node_to_push_position(t_stack *stack, t_node *target_node,
 			position = position + 1;
 	}
 	if (position >= (stack->size / 2))
-		r_rotate_to_position(stack, position, is_a);
+		r_rotate_to_position(stack, position, print_stack_a);
 	else
-		rotate_to_position(stack, position, is_a);
+		rotate_to_position(stack, position, print_stack_a);
 }
 
 static void	optimized_push_to_a(t_stack *stack_a, t_stack *stack_b)
