@@ -6,7 +6,7 @@
 #    By: yasmine <yasmine@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/19 16:11:48 by yaatlaou          #+#    #+#              #
-#    Updated: 2024/11/03 20:28:49 by yasmine          ###   ########.fr        #
+#    Updated: 2024/11/09 22:53:28 by yasmine          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,8 @@ LIBFT = $(LIBFT_DIR)/libft.a
 
 SRC = big_algo.c main.c init_struct.c mini_algo.c \
       op_push.c op_r_rotate.c op_rotate.c op_swap.c \
-	  parsing.c op_utils.c mini_algo_utils.c big_algo_utils.c
+	  parsing.c op_utils.c algo_utils.c big_algo_utils.c \
+	  free.c cost.c
 OBJ = $(SRC:%.c=obj/%.o)
 
 all: $(LIBFT) $(NAME)

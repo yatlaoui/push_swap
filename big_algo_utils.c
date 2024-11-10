@@ -6,7 +6,7 @@
 /*   By: yasmine <yasmine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/02 11:26:03 by yasmine           #+#    #+#             */
-/*   Updated: 2024/11/09 16:49:39 by yasmine          ###   ########.fr       */
+/*   Updated: 2024/11/09 22:56:24 by yasmine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,12 +33,25 @@ int	is_only_extreme(t_stack *stack, int q1, int q3)
 	return (0);
 }
 
+void	op_extreme(t_stack *stack_a, t_stack *stack_b, int q1, int q3)
+{
+	t_node	*current;
+
+	current = stack_a->first;
+	if (current->index <= q1)
+	{
+		op_pb(stack_a, stack_b);
+		op_rb(stack_b);
+	}
+	if (current->index >= q3)
+		op_pb(stack_a, stack_b);
+}
+
 void	rotate_to_position(t_stack *stack, int position, int is_a)
 {
 	int	cpt;
 
 	cpt = 0;
-	
 	while (cpt != position)
 	{
 		if (is_a)
